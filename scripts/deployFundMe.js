@@ -14,7 +14,7 @@ async function main(){
     //verify fundme
     if(hre.network.config.chainId == 11155111 && process.env.API_KEY){
         console.log("waiting for 5 confirmations")
-        await fundMe.deploymentTransaction.wait(5)
+        await fundMe.deploymentTransaction().wait(5)
         await verifyFundMe(fundMe.target,[10])
     }else{
         console.log("verification skipped..")
